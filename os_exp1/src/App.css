@@ -1,0 +1,68 @@
+* {
+    border: solid black;
+}
+
+#App {
+    display: flex;
+}
+
+#processOps {
+    display: flex;
+}
+
+.processHeader {
+    flex-basis: 4em;
+    text-align: center;
+    padding: 1em;
+}
+
+.Processes {
+    display: flex;
+}
+
+.process {
+    position: relative;
+    padding: 1rem;
+    flex-basis: 1.25rem;
+    text-align: center;
+}
+.process-enter {
+    opacity: 0;
+}
+.process-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+.process-exit {
+    opacity: 1;
+}
+.process-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}
+
+.running {
+    background-color:green;
+}
+
+.ready {
+    background-color: yellow;
+}
+
+.blocking {
+    /*noinspection CssUnresolvedCustomProperty*/
+    background-color: rgb(255,calc(255 - 25 * var(--counter)),0);
+}
+
+.blockingCounter {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.timesliceRemaining {
+    position: absolute;
+    top: 0;
+    left:0;
+}
+
