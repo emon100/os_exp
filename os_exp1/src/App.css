@@ -60,9 +60,44 @@
     right: 0;
 }
 
+.memoryCounter {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 .timesliceRemaining {
     position: absolute;
     top: 0;
     left:0;
+}
+
+.tooltip {
+    position: relative;
+    border-bottom: 1px dotted black;
+}
+
+/* Tooltip box */
+.tooltip:before {
+    visibility: hidden;
+    content: attr(data-tooltip);
+    position: absolute;
+    width: 50px;
+    background-color: #062B45;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    line-height: 1.2;
+    border-radius: 6px;
+    z-index: 1;
+    transition: opacity .6s;
+    bottom: 10%;
+    left: 50%;
+    margin-left: -25px;
+    font-size: 0.75em;
+}
+
+.tooltip:hover.tooltip:before {
+    visibility: visible;
 }
 
