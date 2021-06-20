@@ -129,7 +129,7 @@ function ProcessesView(props:any) {
 /*
                               ┌-------------------┐
                               │                   ↓
-三状态   new--->ready<-->running--->blocking     exit
+五状态   new--->ready<-->running--->blocking     exit
                     ↑                  │
                     └---------------- -┘
 

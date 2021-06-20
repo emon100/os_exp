@@ -13,6 +13,7 @@ int main(){
     if(pipe(fd)==-1){
         return EXIT_FAILURE;
     }
+
     //Create child1
     if((thisPid=fork())==-1){
         return EXIT_FAILURE;
@@ -39,19 +40,38 @@ int main(){
     }
 
     //father
+    if((thisPid=fork())==-1){
+        return EXIT_FAILURE;
+    }
+
+    //child3
+    if(thisPid==0){
+        lockf(fd[1],1,0);
+        sprintf(buf,"Child process3 is sending a message.\n");
+        write(fd[1],buf,500);
+        return EXIT_SUCCESS;
+    }
+
+    //father
     if(read(fd[0],r,500)==-1){
         return EXIT_FAILURE;
     }else{
         printf("%s\n",r);
         lockf(fd[1],0,0);
     }
-
+    //father
     if(read(fd[0],r,500)==-1){
         return EXIT_FAILURE;
     }else{
         printf("%s\n",r);
         lockf(fd[1],0,0);
     }
-
+    //father
+    if(read(fd[0],r,500)==-1){
+        return EXIT_FAILURE;
+    }else{
+        printf("%s\n",r);
+        lockf(fd[1],0,0);
+    }
     return EXIT_SUCCESS;
 }
